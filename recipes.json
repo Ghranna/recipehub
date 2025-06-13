@@ -1,0 +1,29 @@
+{
+  "recipes": [
+    {
+      "title": "Charquicán",
+      "ingredients": ["papas", "carne molida", "zapallo", "ajo", "cebolla", "aceite", "sal", "orégano"],
+      "instructions": "En una olla con aceite caliente, sofríe cebolla y ajo. Agrega la carne molida y cocina hasta dorar. Incorpora el zapallo, papas y condimentos. Cubre con agua y cocina hasta que todo esté blando. Tritura ligeramente antes de servir."
+    },
+    {
+      "title": "Pastel de choclo",
+      "ingredients": ["choclo", "pollo", "pino de carne", "huevo duro", "aceitunas", "azúcar", "sal"],
+      "instructions": "Prepara el pino y colócalo en una fuente con trozos de pollo, huevo y aceitunas. Cubre con la pasta de choclo. Espolvorea azúcar y hornea hasta dorar."
+    },
+    {
+      "title": "Empanadas de pino",
+      "ingredients": ["masa de empanadas", "carne picada", "cebolla", "huevo duro", "pasas", "aceitunas", "comino", "ají de color"],
+      "instructions": "Prepara el pino sofriendo la cebolla y la carne con condimentos. Rellena la masa con una cucharada de pino, huevo, pasas y aceituna. Cierra, pincela con huevo y hornea hasta dorar."
+    },
+    {
+      "title": "Cazuela de vacuno",
+      "ingredients": ["carne de vacuno", "papas", "zapallo", "zanahoria", "choclo", "porotos verdes", "arroz", "sal"],
+      "instructions": "Hierve la carne con sal. Agrega las verduras y cocina hasta que estén blandas. Incorpora el arroz al final y sirve caliente."
+    },
+    {
+      "title": "Porotos granados",
+      "ingredients": ["porotos granados", "zapallo", "choclo", "albahaca", "cebolla", "ajo", "sal"],
+      "instructions": "Sofríe la cebolla y el ajo, añade los porotos y el zapallo. Cocina con agua hasta ablandar. Agrega el choclo y la albahaca, cocina unos minutos más y sirve."
+    }
+  ]
+}
