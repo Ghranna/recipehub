@@ -1,7 +1,7 @@
 {
   "name": "recipehub",
   "version": "1.0.0",
-  "type":"module",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,6 +15,7 @@
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "express-validator": "^7.2.1",
     "mongoose": "^8.15.1",
     "node-fetch": "^3.3.2"
   },
