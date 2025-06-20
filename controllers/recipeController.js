@@ -2,10 +2,66 @@ import Recipe from '../models/Recipe.js'
 
 // Get All recipes
 export const getAllRecipes = async (req, res) => {
+    const { title, ingredient, ingredients, mustHave, sort, limit } = req.query;
+    
+    const orfilters = [];
+    const andFilters = [];
+
+    // OR Filters
+    if(title){
+        orfilters.push({ title: { $regex: title, $options: 'i' } });
+    }
+
+    if(ingredient){
+        orfilters.push({ ingredients: { $regex: ingredient, $options: 'i' } });
+    }
+
+    if(ingredients){
+        const terms = ingredients.split(',').map(term => term.trim());
+        for (const ing of terms){
+            orfilters.push({ ingredients: { $regex: ing, $options: 'i' } });
+        }
+    }
+
+    // AND Filters
+
+    if( mustHave){
+        const terms = mustHave.split(',').map(term => term.trim());
+        for (const ing of terms){
+            andFilters.push({ ingredients: {$regex: ing, $options: 'i' } });
+        }
+    }
+
+    let filter = {};
+
+    if(andFilters.length > 0 && orfilters.length > 0){
+        filter = { $and: [{ $or: orfilters}, {$and: andFilters}] };
+    } else if (andFilters.length > 0){
+        filter = { $and: andFilters };
+    } else if (orfilters.length > 0){
+        filter = { $or: orfilters };
+    }
+
+    // Sort Options
+
+    let sortOption = {};
+    if (sort === 'title_asc'){
+        sortOption = { title: 1 };
+    } else if (sort === 'title_desc'){
+        sortOption = { title: -1 };
+    }
+
+    // Quantity of records
+
+    const max = !isNaN(parseInt(limit)) ? parseInt(limit) : 0;
+
     try {
-        const recipes = await Recipe.find();
+        const recipes = await Recipe.find(filter)
+        .sort(sortOption)
+        .limit(max);
         res.json(recipes);
     }catch (err) {
+        console.error('[Error en QUERY]', err.message);
         res.status(500).json({ error: 'Error al obtener recetas.'});
     }
 };
